@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>STORTHUB - 6 класс: Задание по преобразованию</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_inner">
+          <a href="2lesson.html" class="logo">STORT<span>HUB</span></a>
+          <div class="exit">
+            <p class="nameuser">Мисайлов Райф</p>
+            <a href="#" class="iconexit">🚪</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="container">
+        <div class="content_inner">
+          <div class="menu">
+            <div class="class-switch">
+              <button class="switch-btn" data-href="index.html">5 класс</button>
+              <button class="switch-btn active" data-href="2lesson.html">
+                6 класс
+              </button>
+            </div>
+
+            <ul class="lesson-list">
+              <li data-href="2lesson.html">
+                Урок 1. Двоичное представление в компьютерах
+              </li>
+              <li data-href="2lesson2.html">Урок 2. Бит и Байт</li>
+              <li data-href="2lesson3.html" class="active">
+                Урок 3. Десятичная и двоичная система счисления и их
+                преобразование
+              </li>
+              <li data-href="2lesson4.html">
+                Урок 4. Шестнадцатеричная система счисления
+              </li>
+              <li data-href="2lesson5.html">
+                Урок 5. Как работают компьютеры: Программное и аппаратное
+                обеспечение
+              </li>
+              <li data-href="2lesson6.html">
+                Урок 6. Как работают компьютеры – Ввод, Хранение, Обработка и
+                Вывод данных
+              </li>
+            </ul>
+          </div>
+
+          <div class="content_games">
+            <div class="main-content">
+              <img
+                src="images/2Video3_2.png"
+                alt="Задание по преобразованию"
+                class="content_games_img"
+              />
+
+              <!-- Интерактивное задание -->
+              <div class="binary-check-task">
+                <h3>🎯 Задание: Преобразуй 5₁₀ в двоичную систему</h3>
+                <p>
+                  Введи результат преобразования числа 5 из десятичной системы в
+                  двоичную:
+                </p>
+
+                <div class="input-area">
+                  <input
+                    type="text"
+                    id="binaryInput"
+                    placeholder="Введи двоичное число (только 0 и 1)"
+                    maxlength="8"
+                  />
+                  <button id="checkBtn" class="check-button">Проверить</button>
+                </div>
+
+                <div class="hint-area">
+                  <button id="hintBtn" class="hint-button">💡 Подсказка</button>
+                  <div id="hintText" class="hint-text" style="display: none">
+                    <p>Для преобразования числа 5 в двоичную систему:</p>
+                    <p>5 ÷ 2 = 2 (остаток 1)</p>
+                    <p>2 ÷ 2 = 1 (остаток 0)</p>
+                    <p>1 ÷ 2 = 0 (остаток 1)</p>
+                    <p>Читаем остатки снизу вверх: <strong>101</strong></p>
+                  </div>
+                </div>
+
+                <div class="binary-result" id="binaryResult"></div>
+              </div>
+
+              <!-- Стрелка появляется после выполнения задания -->
+              <img
+                src="images/arrow.png"
+                alt="Далее"
+                class="arrow"
+                id="next-arrow"
+                style="display: none"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="result-modal">
+      <div class="result-content">
+        <h3 id="resultTitle">Результат</h3>
+        <p id="resultText">Текст результата</p>
+        <button id="closeResult" class="close-result-btn">Продолжить</button>
+      </div>
+    </div>
+
+    <div id="resultOverlay" class="result-overlay"></div>
+
+    <!-- Modal for tooltips -->
+    <div id="tooltipOverlay" class="tooltip-overlay"></div>
+    <div id="tooltipModal" class="tooltip-modal"></div>
+
+    <style>
+      .main-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        min-height: 500px;
+      }
+
+      .content_games_img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .arrow {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        z-index: 10;
+        pointer-events: auto;
+      }
+
+      .arrow:hover {
+        transform: scale(1.1);
+      }
+
+      .binary-check-task {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 2px solid #4d36db;
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .binary-check-task h3 {
+        color: #4d36db;
+        margin-bottom: 15px;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .binary-check-task p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        text-align: center;
+        color: #666;
+      }
+
+      .input-area {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #binaryInput {
+        padding: 12px 16px;
+        font-size: 18px;
+        border-radius: 10px;
+        border: 2px solid #4d36db;
+        width: 200px;
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      #binaryInput:focus {
+        outline: none;
+        border-color: #6b46c1;
+        box-shadow: 0 0 10px rgba(77, 54, 219, 0.3);
+      }
+
+      .check-button {
+        padding: 12px 24px;
+        background: #4d36db;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .check-button:hover {
+        background: #3626aa;
+        transform: translateY(-2px);
+      }
+
+      .check-button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .hint-area {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .hint-button {
+        padding: 8px 16px;
+        background: #17a2b8;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+      }
+
+      .hint-button:hover {
+        background: #138496;
+      }
+
+      .hint-text {
+        background: #e8f4fd;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 10px;
+        border-left: 4px solid #17a2b8;
+        text-align: left;
+      }
+
+      .hint-text p {
+        margin: 5px 0;
+        font-size: 14px;
+      }
+
+      .binary-result {
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 15px;
+        border-radius: 10px;
+        min-height: 20px;
+      }
+
+      .result-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        z-index: 1001;
+        max-width: 400px;
+        width: 90%;
+        display: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .result-modal.active {
+        display: block;
+      }
+
+      .result-content h3 {
+        color: #4d36db;
+        margin-bottom: 15px;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .result-content p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .close-result-btn {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 30px;
+        background: #4d36db;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+      }
+
+      .close-result-btn:hover {
+        background: #3626aa;
+      }
+
+      .result-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        display: none;
+      }
+
+      .result-overlay.active {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .binary-check-task {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        .input-area {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        #binaryInput {
+          width: 100%;
+          max-width: 200px;
+        }
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/help.js"></script>
+    <script src="js/main-6class.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const binaryInput = document.getElementById('binaryInput');
+        const checkBtn = document.getElementById('checkBtn');
+        const resultDiv = document.getElementById('binaryResult');
+        const hintBtn = document.getElementById('hintBtn');
+        const hintText = document.getElementById('hintText');
+        const nextArrow = document.getElementById('next-arrow');
+
+        let taskCompleted = false;
+
+        // Валидация ввода - только 0 и 1
+        binaryInput.addEventListener('input', function (e) {
+          e.target.value = e.target.value.replace(/[^01]/g, '');
+        });
+
+        // Показать/скрыть подсказку
+        hintBtn.addEventListener('click', function () {
+          if (hintText.style.display === 'none') {
+            hintText.style.display = 'block';
+            hintBtn.textContent = '🙈 Скрыть подсказку';
+          } else {
+            hintText.style.display = 'none';
+            hintBtn.textContent = '💡 Подсказка';
+          }
+        });
+
+        // Проверка ответа
+        checkBtn.addEventListener('click', function () {
+          const input = binaryInput.value.trim();
+
+          if (!input) {
+            showResult('❌ Ошибка', 'Введи двоичное число!');
+            return;
+          }
+
+          if (input === '101') {
+            taskCompleted = true;
+            showResult(
+              '🎉 Правильно!',
+              'Отлично! 5₁₀ = 101₂. Теперь ты можешь перейти дальше.'
+            );
+
+            // Отключаем кнопку после правильного ответа
+            checkBtn.disabled = true;
+            checkBtn.textContent = 'Задание выполнено!';
+            binaryInput.disabled = true;
+          } else {
+            // Подсказка для неправильного ответа
+            const decimal = parseInt(input, 2);
+            showResult(
+              '❌ Неправильно',
+              `Твой ответ ${input}₂ = ${decimal}₁₀. Нужно получить 5₁₀. Попробуй еще раз!`
+            );
+          }
+        });
+
+        // Enter для отправки
+        binaryInput.addEventListener('keypress', function (e) {
+          if (e.key === 'Enter') {
+            checkBtn.click();
+          }
+        });
+
+        function showResult(title, text) {
+          document.getElementById('resultTitle').textContent = title;
+          document.getElementById('resultText').textContent = text;
+          document.getElementById('resultModal').classList.add('active');
+          document.getElementById('resultOverlay').classList.add('active');
+        }
+
+        function closeResult() {
+          document.getElementById('resultModal').classList.remove('active');
+          document.getElementById('resultOverlay').classList.remove('active');
+
+          // Если задание выполнено, показываем стрелку
+          if (taskCompleted) {
+            nextArrow.style.display = 'block';
+            console.log('Задание выполнено, стрелка показана');
+          }
+        }
+
+        // Обработчик клика по стрелке
+        if (nextArrow) {
+          nextArrow.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (!taskCompleted) {
+              alert('Сначала выполни задание!');
+              return;
+            }
+
+            console.log('Переход к следующей странице...');
+            window.location.href = '2lesson3-3.html';
+          });
+        }
+
+        document
+          .getElementById('closeResult')
+          .addEventListener('click', closeResult);
+        document
+          .getElementById('resultOverlay')
+          .addEventListener('click', closeResult);
+      });
+    </script>
+  </body>
+</html>

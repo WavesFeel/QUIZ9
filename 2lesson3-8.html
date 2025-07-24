@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>STORTHUB - 6 класс: Тест по преобразованию систем счисления</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_inner">
+          <a href="2lesson.html" class="logo">STORT<span>HUB</span></a>
+          <div class="exit">
+            <p class="nameuser">Мисайлов Райф</p>
+            <a href="#" class="iconexit">🚪</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="container">
+        <div class="content_inner">
+          <div class="menu">
+            <div class="class-switch">
+              <button class="switch-btn" data-href="index.html">5 класс</button>
+              <button class="switch-btn active" data-href="2lesson.html">
+                6 класс
+              </button>
+            </div>
+
+            <ul class="lesson-list">
+              <li data-href="2lesson.html">
+                Урок 1. Двоичное представление в компьютерах
+              </li>
+              <li data-href="2lesson2.html">Урок 2. Бит и Байт</li>
+              <li data-href="2lesson3.html" class="active">
+                Урок 3. Десятичная и двоичная система счисления и их
+                преобразование
+              </li>
+              <li data-href="2lesson4.html">
+                Урок 4. Шестнадцатеричная система счисления
+              </li>
+              <li data-href="2lesson5.html">
+                Урок 5. Как работают компьютеры: Программное и аппаратное
+                обеспечение
+              </li>
+              <li data-href="2lesson6.html">
+                Урок 6. Как работают компьютеры – Ввод, Хранение, Обработка и
+                Вывод данных
+              </li>
+            </ul>
+          </div>
+
+          <div class="content_games">
+            <div class="test-section">
+              <h2>🧠 Тест: Преобразование систем счисления</h2>
+              <p>
+                Проверь свои знания о преобразовании между десятичной и двоичной
+                системами!
+              </p>
+
+              <button id="startTestBtn" class="start-test-btn">
+                Начать тест
+              </button>
+
+              <div id="testBlock" class="test-block" style="display: none">
+                <form id="testForm">
+                  <h3>1. Что означает 1010₂ в десятичной системе?</h3>
+                  <label><input type="radio" name="q1" value="8" /> 8</label
+                  ><br />
+                  <label><input type="radio" name="q1" value="10" /> 10</label
+                  ><br />
+                  <label><input type="radio" name="q1" value="12" /> 12</label
+                  ><br /><br />
+
+                  <h3>2. Как записать число 6 в двоичной системе?</h3>
+                  <label><input type="radio" name="q2" value="110" /> 110</label
+                  ><br />
+                  <label><input type="radio" name="q2" value="101" /> 101</label
+                  ><br />
+                  <label><input type="radio" name="q2" value="100" /> 100</label
+                  ><br /><br />
+
+                  <h3>3. Что означает 1111₂ в десятичной системе?</h3>
+                  <label><input type="radio" name="q3" value="14" /> 14</label
+                  ><br />
+                  <label><input type="radio" name="q3" value="15" /> 15</label
+                  ><br />
+                  <label><input type="radio" name="q3" value="16" /> 16</label
+                  ><br /><br />
+
+                  <h3>4. Как записать число 9 в двоичной системе?</h3>
+                  <label
+                    ><input type="radio" name="q4" value="1001" /> 1001</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q4" value="1010" /> 1010</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q4" value="1000" /> 1000</label
+                  ><br /><br />
+
+                  <button type="submit" class="submit-test-btn">
+                    Завершить тест
+                  </button>
+                </form>
+
+                <div id="testResult" class="test-result" style="display: none">
+                  <h3>🎉 Отлично! Ты прошёл тест!</h3>
+                  <p id="resultMessage">
+                    Теперь ты умеешь преобразовывать числа между системами
+                    счисления.
+                  </p>
+                  <div class="result-details" id="resultDetails"></div>
+                  <button id="nextLessonBtn" class="next-lesson-btn">
+                    Перейти к следующему уроку
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for tooltips -->
+    <div id="tooltipOverlay" class="tooltip-overlay"></div>
+    <div id="tooltipModal" class="tooltip-modal"></div>
+
+    <style>
+      .test-section {
+        padding: 40px;
+        text-align: center;
+        background: white;
+        border-radius: 15px;
+        margin: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .test-section h2 {
+        color: #4d36db;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .test-section p {
+        margin-bottom: 30px;
+        font-size: 16px;
+        color: #666;
+      }
+
+      .start-test-btn {
+        padding: 20px 40px;
+        background: linear-gradient(135deg, #4d36db, #6b46c1);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        box-shadow: 0 4px 15px rgba(77, 54, 219, 0.3);
+      }
+
+      .start-test-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(77, 54, 219, 0.4);
+      }
+
+      .test-block {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .test-block h3 {
+        color: #4d36db;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .test-block label {
+        display: block;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-weight: 500;
+      }
+
+      .test-block label:hover {
+        background-color: #e9ecef;
+      }
+
+      .test-block input[type='radio'] {
+        margin-right: 10px;
+        transform: scale(1.2);
+      }
+
+      .submit-test-btn {
+        padding: 15px 30px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 20px;
+      }
+
+      .submit-test-btn:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+      }
+
+      .test-result {
+        background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        color: #155724;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        border: 2px solid #28a745;
+        margin-top: 20px;
+      }
+
+      .test-result h3 {
+        color: #155724;
+        margin-bottom: 15px;
+        font-size: 22px;
+      }
+
+      .test-result p {
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .result-details {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 15px 0;
+        text-align: left;
+        border: 1px solid #28a745;
+      }
+
+      .result-details h4 {
+        color: #155724;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+
+      .result-details p {
+        margin: 8px 0;
+        padding: 8px;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+
+      .next-lesson-btn {
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #4d36db, #6b46c1);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .next-lesson-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(77, 54, 219, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .test-section {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        .test-block {
+          padding: 20px;
+        }
+
+        .start-test-btn {
+          padding: 15px 30px;
+          font-size: 16px;
+        }
+
+        .test-block h3 {
+          font-size: 16px;
+        }
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/help.js"></script>
+    <!-- Убираем main-6class.js чтобы избежать конфликтов -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let testPassed = false;
+        let globalTestPassed = false;
+
+        const testForm = document.getElementById('testForm');
+        const testResult = document.getElementById('testResult');
+        const startTestBtn = document.getElementById('startTestBtn');
+        const testBlock = document.getElementById('testBlock');
+
+        // Показываем тест при клике
+        if (startTestBtn && testBlock) {
+          startTestBtn.addEventListener('click', () => {
+            startTestBtn.style.display = 'none';
+            testBlock.style.display = 'block';
+            testBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+
+        // Проверка теста
+        if (testForm && testResult) {
+          testForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const answers = {
+              q1: '10', // 1010₂ = 8+2 = 10₁₀
+              q2: '110', // 6₁₀ = 110₂
+              q3: '15', // 1111₂ = 8+4+2+1 = 15₁₀
+              q4: '1001', // 9₁₀ = 1001₂
+            };
+
+            const explanations = {
+              q1: '1010₂ = 1×8 + 0×4 + 1×2 + 0×1 = 8+2 = 10₁₀',
+              q2: '6₁₀ = 4+2 = 100₂ + 10₂ = 110₂',
+              q3: '1111₂ = 1×8 + 1×4 + 1×2 + 1×1 = 8+4+2+1 = 15₁₀',
+              q4: '9₁₀ = 8+1 = 1000₂ + 1₂ = 1001₂',
+            };
+
+            let correct = 0;
+            let total = Object.keys(answers).length;
+            let detailsHTML = '<h4>Разбор ответов:</h4>';
+
+            // Проверяем заполненность всех вопросов
+            let allAnswered = true;
+            for (let q in answers) {
+              const selected = testForm.querySelector(
+                `input[name="${q}"]:checked`
+              );
+              if (!selected) {
+                allAnswered = false;
+                break;
+              }
+            }
+
+            if (!allAnswered) {
+              alert('Пожалуйста, ответь на все вопросы перед проверкой!');
+              return;
+            }
+
+            // Проверяем каждый вопрос
+            for (let q in answers) {
+              const selected = testForm.querySelector(
+                `input[name="${q}"]:checked`
+              );
+              const questionNumber = q.substring(1);
+
+              if (selected && selected.value === answers[q]) {
+                correct++;
+                detailsHTML += `<p style="color: #28a745; background: #d4edda; padding: 8px; border-radius: 5px; margin: 5px 0;">✅ Вопрос ${questionNumber}: Правильно! ${explanations[q]}</p>`;
+              } else {
+                const userAnswer = selected ? selected.value : 'не выбрано';
+                detailsHTML += `<p style="color: #dc3545; background: #f8d7da; padding: 8px; border-radius: 5px; margin: 5px 0;">❌ Вопрос ${questionNumber}: Неправильно. ${explanations[q]}</p>`;
+              }
+            }
+
+            console.log(`Правильных ответов: ${correct} из ${total}`);
+
+            if (correct === total) {
+              testPassed = true;
+              globalTestPassed = true;
+              testForm.style.display = 'none';
+              testResult.style.display = 'block';
+              document.getElementById('resultMessage').textContent =
+                'Отлично! Ты полностью освоил преобразование между системами счисления!';
+
+              console.log('Тест пройден успешно!');
+            } else if (correct >= 3) {
+              testPassed = true;
+              globalTestPassed = true;
+              testForm.style.display = 'none';
+              testResult.style.display = 'block';
+              document.getElementById('resultMessage').textContent =
+                'Хорошо! Ты понимаешь основы преобразования систем счисления.';
+
+              console.log('Тест пройден с хорошим результатом!');
+            } else {
+              alert(
+                `Ты ответил правильно на ${correct} из ${total} вопросов. Изучи материал ещё раз и попробуй снова!`
+              );
+              return;
+            }
+
+            if (testPassed) {
+              document.getElementById('resultDetails').innerHTML = detailsHTML;
+              testResult.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
+            }
+          });
+        }
+
+        // Переход к следующему уроку
+        const nextLessonBtn = document.getElementById('nextLessonBtn');
+        if (nextLessonBtn) {
+          nextLessonBtn.addEventListener('click', e => {
+            e.preventDefault();
+
+            if (!globalTestPassed) {
+              alert('Сначала пройди тест!');
+              return;
+            }
+
+            console.log('Переходим к следующему уроку...');
+            // Переходим к уроку 4 для 6 класса
+            window.location.href = '2lesson4.html';
+          });
+        }
+
+        // Навигация для стрелок и изображений
+        const img = document.querySelector('.content_games_img');
+        const arrow = document.querySelector('.arrow');
+
+        function navigateNext() {
+          if (!globalTestPassed) {
+            alert('Сначала пройди тест!');
+            return;
+          }
+          window.location.href = '2lesson4.html';
+        }
+
+        if (img) {
+          img.addEventListener('click', navigateNext);
+        }
+
+        if (arrow) {
+          arrow.addEventListener('click', navigateNext);
+        }
+      });
+    </script>
+  </body>
+</html>

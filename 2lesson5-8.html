@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+      STORTHUB - 6 класс: Тест по аппаратному и программному обеспечению
+    </title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_inner">
+          <a href="2lesson.html" class="logo">STORT<span>HUB</span></a>
+          <div class="exit">
+            <p class="nameuser">Мисайлов Райф</p>
+            <a href="#" class="iconexit">🚪</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="container">
+        <div class="content_inner">
+          <div class="menu">
+            <div class="class-switch">
+              <button class="switch-btn" data-href="index.html">5 класс</button>
+              <button class="switch-btn active" data-href="2lesson.html">
+                6 класс
+              </button>
+            </div>
+
+            <ul class="lesson-list">
+              <li data-href="2lesson.html">
+                Урок 1. Двоичное представление в компьютерах
+              </li>
+              <li data-href="2lesson2.html">Урок 2. Бит и Байт</li>
+              <li data-href="2lesson3.html">
+                Урок 3. Десятичная и двоичная система счисления и их
+                преобразование
+              </li>
+              <li data-href="2lesson4.html">
+                Урок 4. Шестнадцатеричная система счисления
+              </li>
+              <li data-href="2lesson5.html" class="active">
+                Урок 5. Как работают компьютеры: Программное и аппаратное
+                обеспечение
+              </li>
+              <li data-href="2lesson6.html">
+                Урок 6. Как работают компьютеры – Ввод, Хранение, Обработка и
+                Вывод данных
+              </li>
+            </ul>
+          </div>
+
+          <div class="content_games">
+            <div class="test-section">
+              <h2>🧠 Тест: Программное и аппаратное обеспечение</h2>
+              <p>Проверь свои знания о компьютерах!</p>
+
+              <button id="startTestBtn" class="start-test-btn">
+                Начать тест
+              </button>
+
+              <div id="testBlock" class="test-block" style="display: none">
+                <form id="testForm">
+                  <h3>1. Что такое аппаратное обеспечение (Hardware)?</h3>
+                  <label
+                    ><input type="radio" name="q1" value="physical" />
+                    Физические компоненты компьютера</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q1" value="programs" /> Программы
+                    и приложения</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q1" value="internet" /> Интернет
+                    и сети</label
+                  ><br /><br />
+
+                  <h3>
+                    2. Какие из перечисленных элементов относятся к программному
+                    обеспечению?
+                  </h3>
+                  <label
+                    ><input type="radio" name="q2" value="software" />
+                    Операционная система и приложения</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q2" value="hardware" /> Процессор
+                    и память</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q2" value="peripherals" />
+                    Клавиатура и мышь</label
+                  ><br /><br />
+
+                  <h3>3. Что нужно для полноценной работы компьютера?</h3>
+                  <label
+                    ><input type="radio" name="q3" value="both" /> И аппаратное,
+                    и программное обеспечение</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q3" value="only_hardware" />
+                    Только аппаратное обеспечение</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q3" value="only_software" />
+                    Только программное обеспечение</label
+                  ><br /><br />
+
+                  <h3>4. Microsoft Word - это пример:</h3>
+                  <label
+                    ><input type="radio" name="q4" value="application" />
+                    Прикладного программного обеспечения</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q4" value="system" /> Системного
+                    программного обеспечения</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q4" value="hardware" />
+                    Аппаратного обеспечения</label
+                  ><br /><br />
+
+                  <button type="submit" class="submit-test-btn">
+                    Завершить тест
+                  </button>
+                </form>
+
+                <div id="testResult" class="test-result" style="display: none">
+                  <h3>🎉 Отлично! Ты прошёл тест!</h3>
+                  <p id="resultMessage">
+                    Теперь ты понимаешь разницу между аппаратным и программным
+                    обеспечением!
+                  </p>
+                  <div class="result-details" id="resultDetails"></div>
+                  <button id="nextLessonBtn" class="next-lesson-btn">
+                    Перейти к следующему уроку
+                  </button>
+                </div>
+              </div>
+
+              <!-- Интерактивная викторина -->
+              <div class="bonus-game" style="display: none" id="bonusGame">
+                <h3>🎯 Бонус: Сортировка компонентов</h3>
+                <p>Распредели элементы по категориям!</p>
+
+                <div class="sorting-game">
+                  <div class="items-to-sort">
+                    <div class="sort-item" data-type="hardware">Процессор</div>
+                    <div class="sort-item" data-type="software">Windows</div>
+                    <div class="sort-item" data-type="hardware">
+                      Оперативная память
+                    </div>
+                    <div class="sort-item" data-type="software">Chrome</div>
+                    <div class="sort-item" data-type="hardware">
+                      Жесткий диск
+                    </div>
+                    <div class="sort-item" data-type="software">Photoshop</div>
+                  </div>
+
+                  <div class="sort-categories">
+                    <div class="sort-category" data-category="hardware">
+                      <h4>🔧 Hardware</h4>
+                      <div class="sort-zone"></div>
+                    </div>
+                    <div class="sort-category" data-category="software">
+                      <h4>💾 Software</h4>
+                      <div class="sort-zone"></div>
+                    </div>
+                  </div>
+
+                  <button id="checkSorting" class="check-btn">
+                    Проверить сортировку
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for tooltips -->
+    <div id="tooltipOverlay" class="tooltip-overlay"></div>
+    <div id="tooltipModal" class="tooltip-modal"></div>
+
+    <style>
+      .test-section {
+        padding: 40px;
+        text-align: center;
+        background: white;
+        border-radius: 15px;
+        margin: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .test-section h2 {
+        color: #4d36db;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .test-section p {
+        margin-bottom: 30px;
+        font-size: 16px;
+        color: #666;
+      }
+
+      .start-test-btn {
+        padding: 20px 40px;
+        background: linear-gradient(135deg, #4d36db, #6b46c1);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        box-shadow: 0 4px 15px rgba(77, 54, 219, 0.3);
+      }
+
+      .start-test-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(77, 54, 219, 0.4);
+      }
+
+      .test-block {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .test-block h3 {
+        color: #4d36db;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .test-block label {
+        display: block;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-weight: 500;
+      }
+
+      .test-block label:hover {
+        background-color: #e9ecef;
+      }
+
+      .test-block input[type='radio'] {
+        margin-right: 10px;
+        transform: scale(1.2);
+      }
+
+      .submit-test-btn {
+        padding: 15px 30px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 20px;
+      }
+
+      .submit-test-btn:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+      }
+
+      .test-result {
+        background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        color: #155724;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        border: 2px solid #28a745;
+        margin-top: 20px;
+      }
+
+      .test-result h3 {
+        color: #155724;
+        margin-bottom: 15px;
+        font-size: 22px;
+      }
+
+      .test-result p {
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .result-details {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 15px 0;
+        text-align: left;
+        border: 1px solid #28a745;
+      }
+
+      .result-details h4 {
+        color: #155724;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+
+      .result-details p {
+        margin: 8px 0;
+        padding: 8px;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+
+      .next-lesson-btn {
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #4d36db, #6b46c1);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .next-lesson-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(77, 54, 219, 0.3);
+      }
+
+      .bonus-game {
+        background: #e8f4fd;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 20px;
+        border: 2px solid #17a2b8;
+      }
+
+      .bonus-game h3 {
+        color: #17a2b8;
+        margin-bottom: 15px;
+      }
+
+      .sorting-game {
+        margin-top: 20px;
+      }
+
+      .items-to-sort {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .sort-item {
+        background: white;
+        border: 2px solid #17a2b8;
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: grab;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        user-select: none;
+      }
+
+      .sort-item:hover {
+        transform: scale(1.05);
+      }
+
+      .sort-item.dragging {
+        opacity: 0.5;
+        cursor: grabbing;
+      }
+
+      .sort-categories {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .sort-category {
+        background: rgba(255, 255, 255, 0.8);
+        border: 2px dashed #17a2b8;
+        border-radius: 10px;
+        padding: 15px;
+        width: 200px;
+        min-height: 100px;
+      }
+
+      .sort-category h4 {
+        color: #17a2b8;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .sort-zone {
+        min-height: 60px;
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .sort-zone.drag-over {
+        border-color: #17a2b8;
+        background-color: rgba(23, 162, 184, 0.1);
+      }
+
+      .check-btn {
+        padding: 10px 20px;
+        background: #17a2b8;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .check-btn:hover {
+        background: #138496;
+      }
+
+      @media (max-width: 768px) {
+        .test-section {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        .test-block {
+          padding: 20px;
+        }
+
+        .start-test-btn {
+          padding: 15px 30px;
+          font-size: 16px;
+        }
+
+        .test-block h3 {
+          font-size: 16px;
+        }
+
+        .sort-categories {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/help.js"></script>
+    <!-- Убираем main-6class.js чтобы избежать конфликтов с тестом -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let testPassed = false;
+        let globalTestPassed = false;
+
+        const testForm = document.getElementById('testForm');
+        const testResult = document.getElementById('testResult');
+        const startTestBtn = document.getElementById('startTestBtn');
+        const testBlock = document.getElementById('testBlock');
+        const bonusGame = document.getElementById('bonusGame');
+
+        // Показываем тест при клике
+        if (startTestBtn && testBlock) {
+          startTestBtn.addEventListener('click', () => {
+            startTestBtn.style.display = 'none';
+            testBlock.style.display = 'block';
+            testBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+
+        // Проверка теста
+        if (testForm && testResult) {
+          testForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const answers = {
+              q1: 'physical',
+              q2: 'software',
+              q3: 'both',
+              q4: 'application',
+            };
+
+            const explanations = {
+              q1: 'Аппаратное обеспечение - это физические компоненты: процессор, память, жесткий диск',
+              q2: 'Программное обеспечение включает операционные системы и приложения',
+              q3: 'Для работы компьютера нужны и аппаратные, и программные компоненты',
+              q4: 'Microsoft Word - это прикладная программа для решения пользовательских задач',
+            };
+
+            let correct = 0;
+            let total = Object.keys(answers).length;
+            let detailsHTML = '<h4>Разбор ответов:</h4>';
+
+            // Проверяем заполненность всех вопросов
+            let allAnswered = true;
+            for (let q in answers) {
+              const selected = testForm.querySelector(
+                `input[name="${q}"]:checked`
+              );
+              if (!selected) {
+                allAnswered = false;
+                break;
+              }
+            }
+
+            if (!allAnswered) {
+              alert('Пожалуйста, ответь на все вопросы перед проверкой!');
+              return;
+            }
+
+            // Проверяем каждый вопрос
+            for (let q in answers) {
+              const selected = testForm.querySelector(
+                `input[name="${q}"]:checked`
+              );
+              const questionNumber = q.substring(1);
+
+              if (selected && selected.value === answers[q]) {
+                correct++;
+                detailsHTML += `<p style="color: #28a745; background: #d4edda; padding: 8px; border-radius: 5px; margin: 5px 0;">✅ Вопрос ${questionNumber}: Правильно! ${explanations[q]}</p>`;
+              } else {
+                detailsHTML += `<p style="color: #dc3545; background: #f8d7da; padding: 8px; border-radius: 5px; margin: 5px 0;">❌ Вопрос ${questionNumber}: ${explanations[q]}</p>`;
+              }
+            }
+
+            if (correct === total) {
+              testPassed = true;
+              globalTestPassed = true;
+              testForm.style.display = 'none';
+              testResult.style.display = 'block';
+              document.getElementById('resultMessage').textContent =
+                'Отлично! Ты полностью освоил тему аппаратного и программного обеспечения!';
+
+              // Показываем бонусную игру
+              bonusGame.style.display = 'block';
+            } else if (correct >= 3) {
+              testPassed = true;
+              globalTestPassed = true;
+              testForm.style.display = 'none';
+              testResult.style.display = 'block';
+              document.getElementById('resultMessage').textContent =
+                'Хорошо! Ты понимаешь основы темы.';
+            } else {
+              alert(
+                `Ты ответил правильно на ${correct} из ${total} вопросов. Изучи материал ещё раз и попробуй снова!`
+              );
+              return;
+            }
+
+            if (testPassed) {
+              document.getElementById('resultDetails').innerHTML = detailsHTML;
+              testResult.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
+            }
+          });
+        }
+
+        // Переход к следующему уроку
+        const nextLessonBtn = document.getElementById('nextLessonBtn');
+        if (nextLessonBtn) {
+          nextLessonBtn.addEventListener('click', e => {
+            e.preventDefault();
+
+            if (!globalTestPassed) {
+              alert('Сначала пройди тест!');
+              return;
+            }
+
+            // Переходим к уроку 6 для 6 класса
+            window.location.href = '2lesson6.html';
+          });
+        }
+
+        // Бонусная игра - сортировка
+        initSortingGame();
+
+        function initSortingGame() {
+          const sortItems = document.querySelectorAll('.sort-item');
+          const sortZones = document.querySelectorAll('.sort-zone');
+          let draggedElement = null;
+
+          sortItems.forEach(item => {
+            item.draggable = true;
+
+            item.addEventListener('dragstart', function (e) {
+              draggedElement = this;
+              this.classList.add('dragging');
+            });
+
+            item.addEventListener('dragend', function (e) {
+              this.classList.remove('dragging');
+              draggedElement = null;
+            });
+          });
+
+          sortZones.forEach(zone => {
+            zone.addEventListener('dragover', function (e) {
+              e.preventDefault();
+              this.classList.add('drag-over');
+            });
+
+            zone.addEventListener('dragleave', function (e) {
+              this.classList.remove('drag-over');
+            });
+
+            zone.addEventListener('drop', function (e) {
+              e.preventDefault();
+              this.classList.remove('drag-over');
+
+              if (draggedElement) {
+                this.appendChild(draggedElement);
+              }
+            });
+          });
+
+          // Проверка сортировки
+          document
+            .getElementById('checkSorting')
+            .addEventListener('click', function () {
+              const hardwareZone = document.querySelector(
+                '[data-category="hardware"] .sort-zone'
+              );
+              const softwareZone = document.querySelector(
+                '[data-category="software"] .sort-zone'
+              );
+
+              const hardwareItems = hardwareZone.querySelectorAll('.sort-item');
+              const softwareItems = softwareZone.querySelectorAll('.sort-item');
+
+              let allCorrect = true;
+
+              hardwareItems.forEach(item => {
+                if (item.dataset.type !== 'hardware') {
+                  allCorrect = false;
+                  item.style.border = '2px solid #dc3545';
+                } else {
+                  item.style.border = '2px solid #28a745';
+                }
+              });
+
+              softwareItems.forEach(item => {
+                if (item.dataset.type !== 'software') {
+                  allCorrect = false;
+                  item.style.border = '2px solid #dc3545';
+                } else {
+                  item.style.border = '2px solid #28a745';
+                }
+              });
+
+              if (
+                allCorrect &&
+                hardwareItems.length + softwareItems.length === 6
+              ) {
+                alert('🎉 Отлично! Ты правильно распределил все компоненты!');
+                this.textContent = 'Сортировка завершена!';
+                this.disabled = true;
+              } else {
+                alert(
+                  'Некоторые элементы в неправильных категориях. Попробуй еще раз!'
+                );
+              }
+            });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>STORTHUB - Урок 6: Тест по обработке данных</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_inner">
+          <a href="#" class="logo">STORT<span>HUB</span></a>
+          <div class="exit">
+            <p class="nameuser">Мисайлов Райф</p>
+            <a href="#" class="iconexit">a</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="container">
+        <div class="content_inner">
+          <div class="menu">
+            <div class="class-switch">
+              <button class="switch-btn" data-href="index.html">5 класс</button>
+              <button class="switch-btn active" data-href="2lesson.html">
+                6 класс
+              </button>
+            </div>
+
+            <ul class="lesson-list">
+              <li data-href="2lesson.html">
+                Урок 1. Двоичное представление в компьютерах
+              </li>
+              <li data-href="2lesson2.html">Урок 2. Бит и Байт</li>
+              <li data-href="2lesson3.html">
+                Урок 3. Десятичная и двоичная система счисления и их
+                преобразование
+              </li>
+              <li data-href="2lesson4.html">
+                Урок 4. Шестнадцатеричная система счисления
+              </li>
+              <li data-href="2lesson5.html">
+                Урок 5. Как работают компьютеры: Программное и аппаратное
+                обеспечение
+              </li>
+              <li data-href="2lesson6.html" class="active">
+                Урок 6. Как работают компьютеры – Ввод, Хранение, Обработка и
+                Вывод данных
+              </li>
+            </ul>
+          </div>
+
+          <div class="content_games">
+            <div class="data-processing-test-section">
+              <div class="test-header">
+                <div class="test-title">
+                  <h2>🖥️ Тест: Обработка данных в компьютере</h2>
+                  <p>
+                    Проверь свои знания о том, как компьютер работает с данными!
+                  </p>
+                </div>
+              </div>
+
+              <button id="startTestBtn" class="start-test-btn">
+                Начать тест
+              </button>
+
+              <div id="testBlock" class="test-block" style="display: none">
+                <form id="testForm">
+                  <div class="question-block">
+                    <h3>
+                      1. Что означает аббревиатура IPPO
+                      (Ввод-Обработка-Вывод-Хранение)?
+                    </h3>
+                    <label
+                      ><input
+                        type="radio"
+                        name="q1"
+                        value="input-process-output-storage"
+                      />
+                      Ввод → Обработка → Вывод → Хранение</label
+                    >
+                    <label
+                      ><input type="radio" name="q1" value="incorrect1" />
+                      Интернет → Процессор → Память → Операции</label
+                    >
+                    <label
+                      ><input type="radio" name="q1" value="incorrect2" />
+                      Информация → Программы → Пользователь → Система</label
+                    >
+                  </div>
+
+                  <div class="question-block">
+                    <h3>
+                      2. Какое устройство НЕ является устройством ввода данных?
+                    </h3>
+                    <label
+                      ><input type="radio" name="q2" value="incorrect1" />
+                      Клавиатура</label
+                    >
+                    <label
+                      ><input type="radio" name="q2" value="incorrect2" />
+                      Микрофон</label
+                    >
+                    <label
+                      ><input type="radio" name="q2" value="monitor" />
+                      Монитор</label
+                    >
+                  </div>
+
+                  <div class="question-block">
+                    <h3>
+                      3. Где компьютер хранит данные ВРЕМЕННО во время работы?
+                    </h3>
+                    <label
+                      ><input type="radio" name="q3" value="ram" /> В
+                      оперативной памяти (RAM)</label
+                    >
+                    <label
+                      ><input type="radio" name="q3" value="incorrect1" /> На
+                      жёстком диске</label
+                    >
+                    <label
+                      ><input type="radio" name="q3" value="incorrect2" /> В
+                      процессоре</label
+                    >
+                  </div>
+
+                  <div class="question-block">
+                    <h3>4. Что делает процессор с данными?</h3>
+                    <label
+                      ><input type="radio" name="q4" value="incorrect1" />
+                      Только хранит их</label
+                    >
+                    <label
+                      ><input type="radio" name="q4" value="processes" />
+                      Обрабатывает и выполняет вычисления</label
+                    >
+                    <label
+                      ><input type="radio" name="q4" value="incorrect2" />
+                      Только выводит на экран</label
+                    >
+                  </div>
+
+                  <div class="question-block">
+                    <h3>
+                      5. Какой тип памяти сохраняет данные даже после выключения
+                      компьютера?
+                    </h3>
+                    <label
+                      ><input type="radio" name="q5" value="incorrect1" />
+                      Оперативная память (RAM)</label
+                    >
+                    <label
+                      ><input type="radio" name="q5" value="storage" />
+                      Постоянная память (жёсткий диск/SSD)</label
+                    >
+                    <label
+                      ><input type="radio" name="q5" value="incorrect2" />
+                      Кэш-память</label
+                    >
+                  </div>
+
+                  <div class="question-block">
+                    <h3>
+                      6. В каком порядке происходят основные этапы работы
+                      компьютера?
+                    </h3>
+                    <label
+                      ><input type="radio" name="q6" value="correct-order" />
+                      Ввод → Обработка → Вывод</label
+                    >
+                    <label
+                      ><input type="radio" name="q6" value="incorrect1" /> Вывод
+                      → Ввод → Обработка</label
+                    >
+                    <label
+                      ><input type="radio" name="q6" value="incorrect2" />
+                      Обработка → Ввод → Вывод</label
+                    >
+                  </div>
+
+                  <button type="submit" class="submit-test-btn">
+                    Завершить тест
+                  </button>
+                </form>
+
+                <div id="testResult" class="test-result" style="display: none">
+                  <div class="result-icon">🎉</div>
+                  <h3 id="resultMessage">
+                    Отлично! Ты понимаешь принципы работы компьютера!
+                  </h3>
+                  <p>
+                    Теперь ты знаешь, как компьютер обрабатывает информацию: от
+                    ввода данных до получения результата.
+                  </p>
+
+                  <div class="result-details" id="resultDetails">
+                    <!-- Детали будут добавлены JavaScript -->
+                  </div>
+
+                  <div class="result-score">
+                    <span id="scoreText">Твой результат: </span>
+                    <span id="scoreValue">0/6</span>
+                  </div>
+
+                  <div class="interactive-demo" id="dataProcessingDemo">
+                    <h4>🎮 Интерактивная демонстрация обработки данных</h4>
+                    <div class="demo-container">
+                      <div class="data-flow">
+                        <div class="stage input-stage">
+                          <h5>📥 Ввод</h5>
+                          <input
+                            type="text"
+                            id="userInput"
+                            placeholder="Введи число..."
+                            maxlength="10"
+                          />
+                          <button id="inputBtn">Ввести</button>
+                        </div>
+
+                        <div class="arrow-right">→</div>
+
+                        <div class="stage process-stage">
+                          <h5>⚙️ Обработка</h5>
+                          <div class="process-display" id="processDisplay">
+                            <div class="cpu-animation">
+                              <div class="cpu-core"></div>
+                              <div class="processing-text">
+                                Ожидание данных...
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="arrow-right">→</div>
+
+                        <div class="stage output-stage">
+                          <h5>📤 Вывод</h5>
+                          <div class="output-display" id="outputDisplay">
+                            <div class="screen">
+                              <div class="result-text">
+                                Результат появится здесь
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="memory-section">
+                        <div class="ram-display">
+                          <h6>🧠 Оперативная память</h6>
+                          <div class="memory-cells" id="memoryCells">
+                            <div class="memory-cell empty">Пусто</div>
+                            <div class="memory-cell empty">Пусто</div>
+                            <div class="memory-cell empty">Пусто</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button id="nextLessonBtn" class="next-lesson-btn">
+                    Завершить курс 6 класса
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .data-processing-test-section {
+        padding: 30px;
+        text-align: center;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 20px;
+        margin: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        color: white;
+      }
+
+      .test-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .test-image {
+        max-width: 200px;
+        max-height: 150px;
+        object-fit: contain;
+        border-radius: 15px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .test-title h2 {
+        color: white;
+        margin-bottom: 10px;
+        font-size: 28px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .test-title p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 16px;
+        margin: 0;
+      }
+
+      .start-test-btn {
+        padding: 20px 50px;
+        background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+        margin-bottom: 20px;
+      }
+
+      .start-test-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(238, 90, 36, 0.5);
+      }
+
+      .test-block {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        margin-top: 20px;
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        color: #333;
+      }
+
+      .question-block {
+        margin-bottom: 30px;
+        padding: 25px;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: 15px;
+        border-left: 5px solid #667eea;
+      }
+
+      .question-block h3 {
+        color: #667eea;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .question-block label {
+        display: block;
+        margin-bottom: 12px;
+        padding: 12px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-weight: 500;
+        background: white;
+        border: 2px solid transparent;
+      }
+
+      .question-block label:hover {
+        background-color: #e3f2fd;
+        border-color: #667eea;
+        transform: translateX(5px);
+      }
+
+      .question-block input[type='radio'] {
+        margin-right: 12px;
+        transform: scale(1.3);
+        accent-color: #667eea;
+      }
+
+      .submit-test-btn {
+        padding: 18px 40px;
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .submit-test-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+      }
+
+      .test-result {
+        background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        color: #155724;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        border: 3px solid #28a745;
+        margin-top: 30px;
+        animation: resultAppear 0.6s ease-out;
+      }
+
+      .result-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      @keyframes resultAppear {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .test-result h3 {
+        color: #155724;
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+
+      .result-details {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        text-align: left;
+      }
+
+      .result-details h4 {
+        color: #155724;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+
+      .result-details p {
+        margin: 8px 0;
+        padding: 8px;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+
+      .result-score {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 15px 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .interactive-demo {
+        background: linear-gradient(135deg, #f1f3f4, #e8eaf6);
+        padding: 25px;
+        border-radius: 15px;
+        margin: 25px 0;
+        border: 2px solid #667eea;
+      }
+
+      .interactive-demo h4 {
+        color: #667eea;
+        margin-bottom: 20px;
+        font-size: 20px;
+      }
+
+      .demo-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .data-flow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .stage {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        border: 2px solid #667eea;
+        min-width: 150px;
+        text-align: center;
+      }
+
+      .stage h5 {
+        color: #667eea;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .arrow-right {
+        font-size: 24px;
+        color: #667eea;
+        font-weight: bold;
+      }
+
+      #userInput {
+        width: 100%;
+        padding: 8px;
+        border: 2px solid #667eea;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      #inputBtn {
+        padding: 8px 16px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .cpu-animation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .cpu-core {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .processing-text {
+        font-size: 12px;
+        color: #667eea;
+        font-weight: 600;
+      }
+
+      .screen {
+        width: 100%;
+        height: 60px;
+        background: #000;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid #333;
+      }
+
+      .result-text {
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .memory-section {
+        margin-top: 15px;
+      }
+
+      .ram-display h6 {
+        color: #667eea;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .memory-cells {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .memory-cell {
+        padding: 8px 12px;
+        background: white;
+        border: 2px solid #667eea;
+        border-radius: 6px;
+        font-size: 12px;
+        min-width: 60px;
+        text-align: center;
+      }
+
+      .memory-cell.filled {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        animation: memoryFill 0.5s ease;
+      }
+
+      @keyframes memoryFill {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .next-lesson-btn {
+        padding: 15px 35px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .next-lesson-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        .test-header {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .data-processing-test-section {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        .test-block {
+          padding: 25px;
+        }
+
+        .start-test-btn {
+          padding: 15px 35px;
+          font-size: 18px;
+        }
+
+        .question-block {
+          padding: 20px;
+        }
+
+        .data-flow {
+          flex-direction: column;
+        }
+
+        .arrow-right {
+          transform: rotate(90deg);
+        }
+
+        .stage {
+          min-width: 200px;
+        }
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/help.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let testPassed = false;
+        let globalTestPassed = false;
+
+        const testForm = document.getElementById('testForm');
+        const testResult = document.getElementById('testResult');
+        const startTestBtn = document.getElementById('startTestBtn');
+        const testBlock = document.getElementById('testBlock');
+
+        // Показываем тест при клике
+        if (startTestBtn && testBlock) {
+          startTestBtn.addEventListener('click', () => {
+            startTestBtn.style.display = 'none';
+            testBlock.style.display = 'block';
+            testBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+
+        // Проверка теста
+        if (testForm && testResult) {
+          testForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const answers = {
+              q1: 'input-process-output-storage', // Ввод → Обработка → Вывод → Хранение
+              q2: 'monitor', // Монитор (устройство вывода)
+              q3: 'ram', // В оперативной памяти (RAM)
+              q4: 'processes', // Обрабатывает и выполняет вычисления
+              q5: 'storage', // Постоянная память (жёсткий диск/SSD)
+              q6: 'correct-order', // Ввод → Обработка → Вывод
+            };
+
+            const explanations = {
+              q1: 'IPPO означает основные этапы работы компьютера: Ввод → Обработка → Вывод → Хранение',
+              q2: 'Монитор является устройством вывода, а не ввода данных',
+              q3: 'Оперативная память (RAM) хранит данные временно во время работы программ',
+              q4: 'Процессор обрабатывает данные и выполняет все вычисления в компьютере',
+              q5: 'Постоянная память (HDD/SSD) сохраняет данные даже после выключения',
+              q6: 'Правильная последовательность: Ввод → Обработка → Вывод',
+            };
+
+            let correct = 0;
+            let total = Object.keys(answers).length;
+            let detailsHTML = '<h4>Разбор ответов:</h4>';
+
+            // Проверяем заполненность всех вопросов
+            let allAnswered = true;
+            for (let q in answers) {
+              const selected = testForm.querySelector(
+                `input[name="${q}"]:checked`
+              );
+              if (!selected) {
+                allAnswered = false;
+                break;
+              }
+            }
+
+            if (!allAnswered) {
+              alert('Пожалуйста, ответь на все вопросы перед проверкой!');
+              return;
+            }
+
+            // Проверяем каждый вопрос
+            for (let q in answers) {
+              const selected = testForm.querySelector(
+                `input[name="${q}"]:checked`
+              );
+              const questionNumber = q.substring(1);
+
+              if (selected && selected.value === answers[q]) {
+                correct++;
+                detailsHTML += `<p style="color: #28a745; background: #d4edda; padding: 8px; border-radius: 5px; margin: 5px 0;">✅ Вопрос ${questionNumber}: Правильно! ${explanations[q]}</p>`;
+              } else {
+                detailsHTML += `<p style="color: #dc3545; background: #f8d7da; padding: 8px; border-radius: 5px; margin: 5px 0;">❌ Вопрос ${questionNumber}: ${explanations[q]}</p>`;
+              }
+            }
+
+            // Показываем результат
+            document.getElementById(
+              'scoreValue'
+            ).textContent = `${correct}/${total}`;
+
+            if (correct === total) {
+              testPassed = true;
+              globalTestPassed = true;
+              testForm.style.display = 'none';
+              testResult.style.display = 'block';
+              document.getElementById('resultMessage').textContent =
+                '🎉 Отлично! Ты полностью освоил принципы работы компьютера!';
+
+              // Показываем интерактивную демонстрацию
+              document.getElementById('dataProcessingDemo').style.display =
+                'block';
+              initDataProcessingDemo();
+            } else if (correct >= 4) {
+              testPassed = true;
+              globalTestPassed = true;
+              testForm.style.display = 'none';
+              testResult.style.display = 'block';
+              document.getElementById('resultMessage').textContent =
+                '✅ Хорошо! Ты понимаешь основы обработки данных.';
+
+              // Показываем интерактивную демонстрацию
+              document.getElementById('dataProcessingDemo').style.display =
+                'block';
+              initDataProcessingDemo();
+            } else {
+              alert(
+                `Ты ответил правильно на ${correct} из ${total} вопросов. Нужно набрать минимум 4 правильных ответа. Изучи материал ещё раз и попробуй снова!`
+              );
+              return;
+            }
+
+            if (testPassed) {
+              document.getElementById('resultDetails').innerHTML = detailsHTML;
+              testResult.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
+            }
+          });
+        }
+
+        // Интерактивная демонстрация обработки данных
+        function initDataProcessingDemo() {
+          const userInput = document.getElementById('userInput');
+          const inputBtn = document.getElementById('inputBtn');
+          const processDisplay = document.getElementById('processDisplay');
+          const outputDisplay = document.getElementById('outputDisplay');
+          const memoryCells = document.getElementById('memoryCells');
+
+          if (inputBtn) {
+            inputBtn.addEventListener('click', () => {
+              const inputValue = userInput.value.trim();
+
+              if (!inputValue || isNaN(inputValue)) {
+                alert('Введи корректное число!');
+                return;
+              }
+
+              const number = parseInt(inputValue);
+
+              // Симуляция процесса обработки данных
+              simulateDataProcessing(number);
+            });
+          }
+
+          if (userInput) {
+            userInput.addEventListener('keypress', e => {
+              if (e.key === 'Enter') {
+                inputBtn.click();
+              }
+            });
+          }
+        }
+
+        function simulateDataProcessing(number) {
+          const processDisplay = document.getElementById('processDisplay');
+          const outputDisplay = document.getElementById('outputDisplay');
+          const memoryCells = document.querySelectorAll('.memory-cell');
+
+          // Шаг 1: Ввод данных в память
+          setTimeout(() => {
+            memoryCells[0].textContent = `${number}`;
+            memoryCells[0].classList.add('filled');
+            memoryCells[0].classList.remove('empty');
+          }, 500);
+
+          // Шаг 2: Процессор начинает обработку
+          setTimeout(() => {
+            processDisplay.querySelector('.processing-text').textContent =
+              'Обрабатываю число...';
+            processDisplay.querySelector('.cpu-core').style.animationDuration =
+              '0.5s';
+          }, 1000);
+
+          // Шаг 3: Вычисления (квадрат числа)
+          setTimeout(() => {
+            const result = number * number;
+            memoryCells[1].textContent = `${result}`;
+            memoryCells[1].classList.add('filled');
+            memoryCells[1].classList.remove('empty');
+            processDisplay.querySelector(
+              '.processing-text'
+            ).textContent = `${number} × ${number} = ${result}`;
+          }, 2000);
+
+          // Шаг 4: Подготовка к выводу
+          setTimeout(() => {
+            processDisplay.querySelector('.processing-text').textContent =
+              'Готовлю результат...';
+            memoryCells[2].textContent = 'Готово';
+            memoryCells[2].classList.add('filled');
+            memoryCells[2].classList.remove('empty');
+          }, 3000);
+
+          // Шаг 5: Вывод результата
+          setTimeout(() => {
+            const result = number * number;
+            outputDisplay.querySelector(
+              '.result-text'
+            ).textContent = `${number}² = ${result}`;
+            processDisplay.querySelector('.processing-text').textContent =
+              'Обработка завершена!';
+            processDisplay.querySelector('.cpu-core').style.animationDuration =
+              '2s';
+          }, 4000);
+
+          // Сброс через 6 секунд
+          setTimeout(() => {
+            memoryCells.forEach(cell => {
+              cell.textContent = 'Пусто';
+              cell.classList.remove('filled');
+              cell.classList.add('empty');
+            });
+            processDisplay.querySelector('.processing-text').textContent =
+              'Ожидание данных...';
+            outputDisplay.querySelector('.result-text').textContent =
+              'Результат появится здесь';
+            document.getElementById('userInput').value = '';
+          }, 8000);
+        }
+
+        // Переход к следующему уроку (завершение курса)
+        const nextLessonBtn = document.getElementById('nextLessonBtn');
+        if (nextLessonBtn) {
+          nextLessonBtn.addEventListener('click', e => {
+            e.preventDefault();
+
+            if (!globalTestPassed) {
+              alert('Сначала пройди тест!');
+              return;
+            }
+
+            // Показываем поздравление с завершением курса
+            showCourseCompletionModal();
+          });
+        }
+
+        function showCourseCompletionModal() {
+          const modal = document.createElement('div');
+          modal.innerHTML = `
+          <div class="completion-overlay">
+            <div class="completion-modal">
+              <div class="completion-content">
+                <div class="completion-icon">🎓</div>
+                <h2>Поздравляем!</h2>
+                <p>Ты успешно завершил курс информатики для 6 класса!</p>
+                <div class="achievements">
+                  <div class="achievement">✅ Изучил двоичную систему счисления</div>
+                  <div class="achievement">✅ Понял принципы работы компьютера</div>
+                  <div class="achievement">✅ Освоил обработку данных</div>
+                  <div class="achievement">✅ Прошел все тесты</div>
+                </div>
+                <p class="final-message">Теперь ты готов к изучению более сложных тем по информатике!</p>
+                <div class="completion-buttons">
+                  <button id="backToMenu" class="completion-btn primary">Вернуться в меню</button>
+                  <button id="restartCourse" class="completion-btn secondary">Пройти курс заново</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+          modal.querySelector('.completion-overlay').style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          z-index: 10000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        `;
+
+          modal.querySelector('.completion-modal').style.cssText = `
+          background: white;
+          border-radius: 20px;
+          padding: 40px;
+          max-width: 500px;
+          width: 90%;
+          text-align: center;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          animation: modalAppear 0.5s ease-out;
+        `;
+
+          modal.querySelector('.completion-icon').style.cssText = `
+          font-size: 64px;
+          margin-bottom: 20px;
+          animation: bounce 2s infinite;
+        `;
+
+          modal.querySelector('h2').style.cssText = `
+          color: #667eea;
+          font-size: 32px;
+          margin-bottom: 20px;
+          font-weight: 700;
+        `;
+
+          modal.querySelector('p').style.cssText = `
+          color: #555;
+          font-size: 18px;
+          margin-bottom: 25px;
+          line-height: 1.6;
+        `;
+
+          modal.querySelector('.achievements').style.cssText = `
+          background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+          padding: 20px;
+          border-radius: 15px;
+          margin: 25px 0;
+          text-align: left;
+        `;
+
+          modal.querySelectorAll('.achievement').forEach(item => {
+            item.style.cssText = `
+            padding: 8px 0;
+            color: #28a745;
+            font-weight: 600;
+            font-size: 16px;
+          `;
+          });
+
+          modal.querySelector('.final-message').style.cssText = `
+          color: #667eea;
+          font-weight: 600;
+          font-size: 16px;
+          margin: 25px 0;
+        `;
+
+          modal.querySelector('.completion-buttons').style.cssText = `
+          display: flex;
+          gap: 15px;
+          justify-content: center;
+          margin-top: 30px;
+        `;
+
+          modal.querySelectorAll('.completion-btn').forEach(btn => {
+            btn.style.cssText = `
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          `;
+          });
+
+          modal.querySelector('.completion-btn.primary').style.cssText += `
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          color: white;
+        `;
+
+          modal.querySelector('.completion-btn.secondary').style.cssText += `
+          background: #f8f9fa;
+          color: #667eea;
+          border: 2px solid #667eea;
+        `;
+
+          document.body.appendChild(modal);
+
+          // Обработчики кнопок
+          modal.querySelector('#backToMenu').addEventListener('click', () => {
+            window.location.href = '2lesson.html';
+          });
+
+          modal
+            .querySelector('#restartCourse')
+            .addEventListener('click', () => {
+              window.location.href = '2lesson.html';
+            });
+
+          // Добавляем стили анимации
+          const style = document.createElement('style');
+          style.textContent = `
+          @keyframes modalAppear {
+            from {
+              opacity: 0;
+              transform: scale(0.8) translateY(-50px);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1) translateY(0);
+            }
+          }
+        `;
+          document.head.appendChild(style);
+        }
+
+        // Навигация для стрелок и изображений (упрощенная версия для этой страницы)
+        const img = document.querySelector('.content_games_img');
+        const arrow = document.querySelector('.arrow');
+
+        function navigateNext() {
+          if (!globalTestPassed) {
+            alert('Сначала пройди тест!');
+            return;
+          }
+          showCourseCompletionModal();
+        }
+
+        if (img) {
+          img.addEventListener('click', navigateNext);
+        }
+
+        if (arrow) {
+          arrow.addEventListener('click', navigateNext);
+        }
+      });
+    </script>
+  </body>
+</html>

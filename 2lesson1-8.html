@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>STORTHUB - 6 класс: Тест по двоичной системе</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_inner">
+          <a href="2lesson.html" class="logo">STORT<span>HUB</span></a>
+          <div class="exit">
+            <p class="nameuser">Мисайлов Райф</p>
+            <a href="#" class="iconexit">🚪</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="container">
+        <div class="content_inner">
+          <div class="menu">
+            <div class="class-switch">
+              <button class="switch-btn" data-href="index.html">5 класс</button>
+              <button class="switch-btn active" data-href="2lesson.html">
+                6 класс
+              </button>
+            </div>
+
+            <ul class="lesson-list">
+              <li data-href="2lesson.html" class="active">
+                Урок 1. Двоичное представление в компьютерах
+              </li>
+              <li data-href="2lesson2.html">Урок 2. Бит и Байт</li>
+              <li data-href="2lesson3.html">
+                Урок 3. Десятичная и двоичная система счисления и их
+                преобразование
+              </li>
+              <li data-href="2lesson4.html">
+                Урок 4. Шестнадцатеричная система счисления
+              </li>
+              <li data-href="2lesson5.html">
+                Урок 5. Как работают компьютеры: Программное и аппаратное
+                обеспечение
+              </li>
+              <li data-href="2lesson6.html">
+                Урок 6. Как работают компьютеры – Ввод, Хранение, Обработка и
+                Вывод данных
+              </li>
+            </ul>
+          </div>
+
+          <div class="content_games">
+            <div class="test-section">
+              <h2>🧠 Тест: Двоичное представление</h2>
+              <p>Проверь свои знания о двоичной системе счисления!</p>
+
+              <button id="startTestBtn" class="start-test-btn">
+                Начать тест
+              </button>
+
+              <div id="testBlock" class="test-block" style="display: none">
+                <form id="testForm">
+                  <h3>1. В какой системе счисления работают компьютеры?</h3>
+                  <label
+                    ><input type="radio" name="q1" value="decimal" /> В
+                    десятичной</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q1" value="binary" /> В
+                    двоичной</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q1" value="octal" /> В
+                    восьмеричной</label
+                  ><br /><br />
+
+                  <h3>
+                    2. Сколько разных цифр используется в двоичной системе?
+                  </h3>
+                  <label
+                    ><input type="radio" name="q2" value="10" /> 10 (0-9)</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q2" value="2" /> 2 (0 и 1)</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q2" value="8" /> 8 (0-7)</label
+                  ><br /><br />
+
+                  <h3>3. Что означает двоичное число 101?</h3>
+                  <label
+                    ><input type="radio" name="q3" value="3" /> 3 в десятичной
+                    системе</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q3" value="5" /> 5 в десятичной
+                    системе</label
+                  ><br />
+                  <label
+                    ><input type="radio" name="q3" value="7" /> 7 в десятичной
+                    системе</label
+                  ><br /><br />
+
+                  <h3>4. Как записать число 4 в двоичной системе?</h3>
+                  <label><input type="radio" name="q4" value="100" /> 100</label
+                  ><br />
+                  <label><input type="radio" name="q4" value="101" /> 101</label
+                  ><br />
+                  <label><input type="radio" name="q4" value="110" /> 110</label
+                  ><br /><br />
+
+                  <button type="submit" class="submit-test-btn">
+                    Завершить тест
+                  </button>
+                </form>
+
+                <div id="testResult" class="test-result" style="display: none">
+                  <h3>🎉 Отлично! Ты прошёл тест!</h3>
+                  <p id="resultMessage">
+                    Теперь ты знаешь основы двоичной системы счисления.
+                  </p>
+                  <div class="result-details" id="resultDetails"></div>
+                  <button id="nextLessonBtn" class="next-lesson-btn">
+                    Перейти к следующему уроку
+                  </button>
+                </div>
+              </div>
+
+              <!-- Интерактивный калькулятор -->
+              <div
+                class="binary-calculator"
+                style="display: none"
+                id="calculator"
+              >
+                <h3>🔢 Бонус: Двоичный калькулятор</h3>
+                <p>Попробуй преобразовать числа самостоятельно!</p>
+
+                <div class="calc-input">
+                  <label for="decimalInput">Десятичное число:</label>
+                  <input
+                    type="number"
+                    id="decimalInput"
+                    min="0"
+                    max="255"
+                    placeholder="Введи число от 0 до 255"
+                  />
+                  <button id="convertToBinary">→ В двоичную</button>
+                </div>
+
+                <div class="calc-input">
+                  <label for="binaryInput">Двоичное число:</label>
+                  <input
+                    type="text"
+                    id="binaryInput"
+                    pattern="[01]*"
+                    placeholder="Введи только 0 и 1"
+                  />
+                  <button id="convertToDecimal">→ В десятичную</button>
+                </div>
+
+                <div class="calc-result" id="calcResult"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for tooltips -->
+    <div id="tooltipOverlay" class="tooltip-overlay"></div>
+    <div id="tooltipModal" class="tooltip-modal"></div>
+
+    <style>
+      .test-section {
+        padding: 40px;
+        text-align: center;
+        background: white;
+        border-radius: 15px;
+        margin: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .test-section h2 {
+        color: #4d36db;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .test-section p {
+        margin-bottom: 30px;
+        font-size: 16px;
+        color: #666;
+      }
+
+      .start-test-btn {
+        padding: 20px 40px;
+        background: linear-gradient(135deg, #4d36db, #6b46c1);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        box-shadow: 0 4px 15px rgba(77, 54, 219, 0.3);
+      }
+
+      .start-test-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(77, 54, 219, 0.4);
+      }
+
+      .test-block {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .test-block h3 {
+        color: #4d36db;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .test-block label {
+        display: block;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-weight: 500;
+      }
+
+      .test-block label:hover {
+        background-color: #e9ecef;
+      }
+
+      .test-block input[type='radio'] {
+        margin-right: 10px;
+        transform: scale(1.2);
+      }
+
+      .submit-test-btn {
+        padding: 15px 30px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 20px;
+      }
+
+      .submit-test-btn:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+      }
+
+      .test-result {
+        background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        color: #155724;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        border: 2px solid #28a745;
+        margin-top: 20px;
+      }
+
+      .test-result h3 {
+        color: #155724;
+        margin-bottom: 15px;
+        font-size: 22px;
+      }
+
+      .test-result p {
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .result-details {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 15px;
+        border-radius: 10px;
+        margin: 15px 0;
+        text-align: left;
+      }
+
+      .next-lesson-btn {
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #4d36db, #6b46c1);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .next-lesson-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(77, 54, 219, 0.3);
+      }
+
+      .binary-calculator {
+        background: #e8f4fd;
+        padding: 25px;
+        border-radius: 15px;
+        margin-top: 20px;
+        border: 2px solid #17a2b8;
+      }
+
+      .binary-calculator h3 {
+        color: #17a2b8;
+        margin-bottom: 15px;
+      }
+
+      .calc-input {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+
+      .calc-input label {
+        min-width: 120px;
+        font-weight: 600;
+      }
+
+      .calc-input input {
+        padding: 8px 12px;
+        border: 2px solid #17a2b8;
+        border-radius: 8px;
+        font-family: 'Montserrat', sans-serif;
+        flex: 1;
+        min-width: 150px;
+      }
+
+      .calc-input button {
+        padding: 8px 15px;
+        background: #17a2b8;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .calc-input button:hover {
+        background: #138496;
+      }
+
+      .calc-result {
+        margin-top: 15px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        font-weight: 600;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        .test-section {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        .test-block {
+          padding: 20px;
+        }
+
+        .start-test-btn {
+          padding: 15px 30px;
+          font-size: 16px;
+        }
+
+        .test-block h3 {
+          font-size: 16px;
+        }
+
+        .calc-input {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .calc-input label {
+          min-width: auto;
+        }
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/help.js"></script>
+    <!-- Убираем main-6class.js чтобы избежать конфликтов с тестом -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let testPassed = false;
+        let globalTestPassed = false; // Глобальная переменная для отслеживания
+
+        const testForm = document.getElementById('testForm');
+        const testResult = document.getElementById('testResult');
+        const startTestBtn = document.getElementById('startTestBtn');
+        const testBlock = document.getElementById('testBlock');
+        const calculator = document.getElementById('calculator');
+
+        // Показываем тест при клике
+        if (startTestBtn && testBlock) {
+          startTestBtn.addEventListener('click', () => {
+            startTestBtn.style.display = 'none';
+            testBlock.style.display = 'block';
+            testBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        }
+
+        // Проверка теста
+        if (testForm && testResult) {
+          testForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const answers = {
+              q1: 'binary',
+              q2: '2',
+              q3: '5',
+              q4: '100',
+            };
+
+            const questions = {
+              q1: 'В какой системе счисления работают компьютеры?',
+              q2: 'Сколько разных цифр используется в двоичной системе?',
+              q3: 'Что означает двоичное число 101?',
+              q4: 'Как записать число 4 в двоичной системе?',
+            };
+
+            const explanations = {
+              q1: 'Компьютеры работают в двоичной системе счисления',
+              q2: 'В двоичной системе используются только цифры 0 и 1',
+              q3: '101₂ = 1×4 + 0×2 + 1×1 = 5₁₀',
+              q4: '4₁₀ = 100₂ (4 = 1×4 + 0×2 + 0×1)',
+            };
+
+            let correct = 0;
+            let total = Object.keys(answers).length;
+            let detailsHTML = '<h4>Разбор ответов:</h4>';
+
+            // Проверяем заполненность всех вопросов
+            let allAnswered = true;
+            for (let q in answers) {
+              const selected = testForm.querySelector(
+                `input[name="${q}"]:checked`
+              );
+              if (!selected) {
+                allAnswered = false;
+                break;
+              }
+            }
+
+            if (!allAnswered) {
+              alert('Пожалуйста, ответь на все вопросы перед проверкой!');
+              return;
+            }
+
+            // Проверяем каждый вопрос
+            for (let q in answers) {
+              const selected = testForm.querySelector(
+                `input[name="${q}"]:checked`
+              );
+              const questionNumber = q.substring(1);
+
+              if (selected && selected.value === answers[q]) {
+                correct++;
+                detailsHTML += `<p style="color: #28a745; background: #d4edda; padding: 8px; border-radius: 5px; margin: 5px 0;">✅ Вопрос ${questionNumber}: Правильно! ${explanations[q]}</p>`;
+              } else {
+                const userAnswer = selected ? selected.value : 'не выбрано';
+                detailsHTML += `<p style="color: #dc3545; background: #f8d7da; padding: 8px; border-radius: 5px; margin: 5px 0;">❌ Вопрос ${questionNumber}: Неправильно. ${explanations[q]}</p>`;
+              }
+            }
+
+            console.log(`Правильных ответов: ${correct} из ${total}`);
+
+            if (correct === total) {
+              testPassed = true;
+              globalTestPassed = true;
+              testForm.style.display = 'none';
+              testResult.style.display = 'block';
+              document.getElementById('resultMessage').textContent =
+                'Отлично! Ты полностью освоил двоичную систему счисления!';
+
+              // Показываем калькулятор как бонус
+              calculator.style.display = 'block';
+
+              console.log('Тест пройден успешно!');
+            } else if (correct >= 3) {
+              testPassed = true;
+              globalTestPassed = true;
+              testForm.style.display = 'none';
+              testResult.style.display = 'block';
+              document.getElementById('resultMessage').textContent =
+                'Хорошо! Ты понимаешь основы двоичной системы.';
+
+              // Показываем калькулятор как бонус
+              calculator.style.display = 'block';
+
+              console.log('Тест пройден с хорошим результатом!');
+            } else {
+              alert(
+                `Ты ответил правильно на ${correct} из ${total} вопросов. Изучи материал ещё раз и попробуй снова!`
+              );
+              return; // Не показываем результат при плохом результате
+            }
+
+            if (testPassed) {
+              document.getElementById('resultDetails').innerHTML = detailsHTML;
+              testResult.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
+            }
+          });
+        }
+
+        // Переход к следующему уроку
+        const nextLessonBtn = document.getElementById('nextLessonBtn');
+        if (nextLessonBtn) {
+          nextLessonBtn.addEventListener('click', e => {
+            e.preventDefault();
+
+            if (!globalTestPassed) {
+              alert('Сначала пройди тест!');
+              return;
+            }
+
+            console.log('Переходим к следующему уроку...');
+            // Переходим к уроку 2 для 6 класса
+            window.location.href = '2lesson2.html';
+          });
+        }
+
+        // Навигация для стрелок и изображений (упрощенная версия для этой страницы)
+        const img = document.querySelector('.content_games_img');
+        const arrow = document.querySelector('.arrow');
+
+        function navigateNext() {
+          if (!globalTestPassed) {
+            alert('Сначала пройди тест!');
+            return;
+          }
+          window.location.href = '2lesson2.html';
+        }
+
+        if (img) {
+          img.addEventListener('click', navigateNext);
+        }
+
+        if (arrow) {
+          arrow.addEventListener('click', navigateNext);
+        }
+
+        // Двоичный калькулятор (весь код калькулятора остается тот же)
+        const decimalInput = document.getElementById('decimalInput');
+        const binaryInput = document.getElementById('binaryInput');
+        const convertToBinary = document.getElementById('convertToBinary');
+        const convertToDecimal = document.getElementById('convertToDecimal');
+        const calcResult = document.getElementById('calcResult');
+
+        if (convertToBinary) {
+          convertToBinary.addEventListener('click', () => {
+            const decimal = parseInt(decimalInput.value);
+            if (isNaN(decimal) || decimal < 0 || decimal > 255) {
+              calcResult.innerHTML = '❌ Введи число от 0 до 255';
+              calcResult.style.color = '#dc3545';
+              calcResult.style.backgroundColor = '#f8d7da';
+            } else {
+              const binary = decimal.toString(2);
+              const paddedBinary = binary.padStart(8, '0');
+              calcResult.innerHTML = `✅ ${decimal}<sub>10</sub> = ${paddedBinary}<sub>2</sub> (${binary}<sub>2</sub>)`;
+              calcResult.style.color = '#155724';
+              calcResult.style.backgroundColor = '#d4edda';
+
+              binaryInput.value = binary;
+            }
+          });
+        }
+
+        if (convertToDecimal) {
+          convertToDecimal.addEventListener('click', () => {
+            const binary = binaryInput.value.trim();
+            if (
+              !/^[01]+$/.test(binary) ||
+              binary === '' ||
+              binary.length > 16
+            ) {
+              calcResult.innerHTML =
+                '❌ Введи правильное двоичное число (только 0 и 1, максимум 16 цифр)';
+              calcResult.style.color = '#dc3545';
+              calcResult.style.backgroundColor = '#f8d7da';
+            } else {
+              const decimal = parseInt(binary, 2);
+              calcResult.innerHTML = `✅ ${binary}<sub>2</sub> = ${decimal}<sub>10</sub>`;
+              calcResult.style.color = '#155724';
+              calcResult.style.backgroundColor = '#d4edda';
+
+              if (decimal <= 255) {
+                decimalInput.value = decimal;
+              }
+            }
+          });
+        }
+
+        // Валидация ввода в реальном времени
+        if (binaryInput) {
+          binaryInput.addEventListener('input', e => {
+            e.target.value = e.target.value.replace(/[^01]/g, '');
+            if (e.target.value.length > 16) {
+              e.target.value = e.target.value.substring(0, 16);
+            }
+          });
+        }
+
+        if (decimalInput) {
+          decimalInput.addEventListener('input', e => {
+            const value = parseInt(e.target.value);
+            if (value > 255) {
+              e.target.value = 255;
+            }
+          });
+        }
+
+        // Enter для быстрого преобразования
+        if (decimalInput) {
+          decimalInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              convertToBinary.click();
+            }
+          });
+        }
+
+        if (binaryInput) {
+          binaryInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              convertToDecimal.click();
+            }
+          });
+        }
+
+        // Очистка результата при изменении полей ввода
+        if (decimalInput) {
+          decimalInput.addEventListener('input', () => {
+            calcResult.innerHTML = 'Введи число и нажми кнопку преобразования';
+            calcResult.style.color = '#6c757d';
+            calcResult.style.backgroundColor = 'rgba(255,255,255,0.8)';
+          });
+        }
+
+        if (binaryInput) {
+          binaryInput.addEventListener('input', () => {
+            calcResult.innerHTML =
+              'Введи двоичное число и нажми кнопку преобразования';
+            calcResult.style.color = '#6c757d';
+            calcResult.style.backgroundColor = 'rgba(255,255,255,0.8)';
+          });
+        }
+
+        // Инициализация калькулятора
+        if (calcResult) {
+          calcResult.innerHTML =
+            'Введи число в любое поле и нажми кнопку преобразования';
+          calcResult.style.color = '#6c757d';
+          calcResult.style.backgroundColor = 'rgba(255,255,255,0.8)';
+        }
+      });
+    </script>
+  </body>
+</html>
